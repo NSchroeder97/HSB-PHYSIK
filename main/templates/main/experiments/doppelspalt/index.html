@@ -1,0 +1,95 @@
+{% extends 'main/template.html' %}
+{% load static %}
+{% block content %}
+<style>
+.experiment{
+    margin-top: 150px;
+}
+
+</style>
+<div class="container experiment">
+    <div class="row" id="vue-app">
+<!--
+         EINGABE: Spaltbreite in mm
+        b_mm = 4
+        # Spaltbreite in m: b
+        b = b_mm / 1000
+        # ---- EINGABE: Spaltabstand in mm
+        d_mm = 27
+        # Spaltabstand in m: d
+        d = d_mm / 1000
+        # ------------------  EINGABE: Wellenlänge in Mikrometer 
+        lambd_micro = 0.525
+        # Wellenlänge in Meter: lambd
+        lambd = lambd_micro / 1000000
+        # ------------------ EINGABE: Winkelabstand zwischen den Doppelstern-
+        #                                      komponenten A und B in Bogensekunden 
+        rho_sek = 2 
+        # Winkelabstand in Grad: rho
+        rho = rho_sek / 3600 * np.pi / 180
+        # -------------------                    Doppelsternkomponenten (w, 0 ...1)
+        w = 1.0
+        # ------------------ EINGABE: Winkelbereich der ausgegebenen 
+        #                                      Intensitätsverteilung in Bogensekunden  
+        a_limit = 30
+-->
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="customRange1" class="form-label">Wellenlänge: <span>[[lam]]</span> nm</label>
+                <input type="range" class="form-range" min="390" max="760" v-model="lam" id="customRange1"> 
+                
+                <div class="row">
+                    <div class="col-md-4">
+                        <label class="form-label" for="typeNumber">Spaltbreite in mm:</label>
+                        <input type="number" v-model="b" id="typeNumber" class="form-control" />
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label" for="typeNumber">Spaltabstand in mm:</label>
+                        <input type="number" v-model="d" id="typeNumber" class="form-control" />
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label" for="typeNumber">Winkelbereich(+/-):</label>
+                        <input type="number" v-model="angle" id="typeNumber" class="form-control" />
+                    </div>
+                </div>
+                <br>
+                <button v-on:click="rechnen" class="btn btn-success">Berechnen</button>
+              
+            </div>
+        </div>
+        <div class="col-md-6">
+            <img :src="`data:image/png;base64,${json.chart}`" />
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+let app = new Vue({
+    el: "#vue-app",
+    delimiters: ['[[', ']]'],
+    data: {
+        myTitle: 'test',
+        json: null,
+        lam: 390, // Wellenlänge in nm
+        b: 4, // Spaltbreite in mm
+        d: 27, //Spaltabstand in mm
+        angle: 30, //Winkel in Grad
+    },
+
+    methods: {
+        rechnen: function () {
+            let url = `http://localhost/api/experiments/doppelspalt/${app.lam}/${app.b}/${app.d}/${app.angle}`
+            $.getJSON(url, function (json) {
+                app.json = json;
+            });
+        }
+  }
+});
+
+let url = `http://localhost/api/experiments/doppelspalt/${app.lam}/${app.b}/${app.d}/${app.angle}`
+$.getJSON(url, function (json) {
+    app.json = json;
+});
+</script>
+
+{% endblock %}

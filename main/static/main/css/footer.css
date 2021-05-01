@@ -1,0 +1,26 @@
+footer{
+    position: absolute;
+    bottom: 0px;
+    width:100%;
+    background-color: var(--bs-dark);
+    color: #FFF;
+}
+
+.footer-img{
+    position:relative;
+    top: 0px;
+    height: 100px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.footer-img img{
+    width: 100%;
+}
+
+.footer-text{
+    position:relative;
+    height: 100px;
+    width: 100%;
+    padding: 20px;
+}

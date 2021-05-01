@@ -1,0 +1,43 @@
+{% extends 'main/template.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+    .cardholder{
+        margin-bottom: 100px;
+    }
+    .card-blue{
+        background-color: var(--hsb-blue);
+        height: 35px;
+    }
+    .card-image{
+        height: 150px;
+        overflow: hidden;
+        background-position: center;
+    }
+</style>
+<section class="section-text" style="margin-top: 150px;">
+
+    <div class="container text-center">
+        <h4>Experimente</h4>
+        <hr>
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, </p>
+    </div>
+</section>
+
+<section class="cardholder">
+    <div class="container">
+        <div class="card" style="width: 18rem;">
+            <div class="card-header card-blue"></div>
+            <div class="card-image" style="background-image: url('{% static 'main/images/team/14.jpg' %}')"></div>
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="{% url 'experiments_doppelspalt' %}" class="btn btn-primary">Zum Versuch</a>
+            </div>
+          </div>
+    </div>
+</section>
+
+
+{% endblock %}

@@ -1,0 +1,72 @@
+:root{
+    --hsb-blue: rgba(10,85,140,1);
+    --hsb-green: rgba(0,145,90,1);
+    --hsb-litegreen: rgba(110,165,60,1);
+    --hsb-yellow: rgba(250,190,0,1);
+    --hsb-orange: rgba(240,120,35,1);
+    --hsb-red: rgba(195,5,50,1);
+    --hsb-purple: rgba(120,100,165,1);
+  
+
+    --grad-blue: linear-gradient(90deg, var(--hsb-blue) 0%, var(--hsb-turkis) 100%);
+    --grad-green: linear-gradient(90deg, var(--hsb-green) 0%, var(--hsb-litegreen) 100%);
+    --grad-red: linear-gradient(90deg, var(--hsb-orange) 0%, var(--hsb-red) 100%);
+}
+
+body{
+    position: relative;
+    margin: 0px;
+    padding: 0px;
+    min-height: 90vh;
+}
+
+main{
+    position: relative;
+    margin-top: 75px;
+    padding-bottom: 200px; 
+}
+
+
+.section-title{
+    color: #fff;
+    background: var(--hsb-blue);
+    max-height: 100px;
+}
+
+.relative{
+    padding-bottom: 30px;
+    padding-top: 30px;
+    height:30px;
+    text-align: center !important;
+}
+.section-anchor{
+    background-color: var(--hsb-blue);
+    border-radius: 50px;
+    box-shadow: 0 3px 9px 0 rgba(0, 0, 0, 0.3);
+    color: #fff;
+    font-size: 40px;
+    line-height: 58px;
+    display: inline-block;
+    position: relative;
+    margin-top: 5px;
+    width: 55px !important;
+    height: 55px !important;
+}
+
+.section-anchor:hover{
+    color: #fff;
+}
+
+.section-text{
+    position: relative;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.parallax {
+  min-height: 300px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

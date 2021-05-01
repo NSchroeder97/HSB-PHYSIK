@@ -1,0 +1,24 @@
+header {
+    position:fixed;
+    width: 100%;
+
+    left: 0px;
+    top: 0px;
+    z-index: 10;
+}
+
+.navbar{
+    min-height: 75px;
+    background-color: #FFF;
+}
+
+.navbar-brand{
+    color: #FFF;
+    padding-bottom: 15px;  
+}
+
+.navbar-brand img{
+    height: 75px;
+    margin-left: 20px;
+    width: 100%;
+}
