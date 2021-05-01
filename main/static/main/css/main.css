@@ -29,7 +29,7 @@ main{
 
 .section-title{
     color: #fff;
-    background: var(--hsb-blue);
+    background: var(--hsb-red);
     max-height: 100px;
 }
 
