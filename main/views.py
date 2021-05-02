@@ -8,3 +8,6 @@ def index(response):
  
 def experiments(response):
     return render(response, 'main/experiments.html', {})
+ 
+def projects(response):
+    return render(response, 'main/projects.html', {})

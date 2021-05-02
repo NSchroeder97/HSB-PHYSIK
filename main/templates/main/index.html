@@ -2,26 +2,40 @@
 {% load static %}
 {% block content %}
 <style>
-    .slider{
-        position: relative;
-        height: 1150px;
-    }     
+.carousel{
+  overflow: hidden;
+  max-height: 800px;
+}
+
+.carousel-indicators button{
+  background-color:#000 !important;
+}
 </style>
 <!-- carosell -->
 <div id="carouselExampleDark" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-indicators">
+   <div class="carousel-indicators">
       <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
       <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
       <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
     </div>
     <div class="carousel-inner">
-      <div class="carousel-item active" data-bs-interval="10000">
-        <img src="{% static 'main/images/slider/h4-1.jpg' %}" class="d-block w-100" alt="...">
+      <!-- <div class="carousel-item active" data-bs-interval="10000">
+        <img src="{% static 'main/images/test.jpg' %}" class="d-block w-100" alt="...">
         <div class="carousel-caption d-none d-md-block">
           <h5>First slide label</h5>
           <p>Some representative placeholder content for the first slide.</p>
         </div>
+      </div>-->
+
+      <div class="carousel-item active" data-bs-interval="10000">
+        <div class="text-center" style="margin-top: 18vw; position: absolute; width: 100%;">
+          <h1 style="color: #000000; font-size: 6vw; letter-spacing: 20px; font-weight:400;">Photonics</h1>
+        </div>
+      
+        <div id="particles-js" class="text-center">
+        </div>
       </div>
+
       <div class="carousel-item" data-bs-interval="2000">
         <img src="{% static 'main/images/slider/h4-2.jpg' %}" class="d-block w-100" alt="...">
         <div class="carousel-caption d-none d-md-block">
@@ -38,11 +52,11 @@
       </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <i class="bi bi-chevron-left dark-icon"></i>
       <span class="visually-hidden">Previous</span>
     </button>
     <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <i class="bi bi-chevron-right dark-icon"></i>
       <span class="visually-hidden">Next</span>
     </button>
   </div>
@@ -62,7 +76,7 @@
 </div>
 </section>
 
-<section class="parallax" style="background-image: url('{% static 'main/images/slider/h4-1.jpg' %}')"></section>
+<section class="parallax" style="background-image: url('{% static 'main/images/test.jpg' %}')"></section>
 <section id="about" class="section-title text-center">
   <h2 class="relative">Seitentrenner</h2>
   <a href="#about" class="section-anchor"><i class="bi bi-caret-down-fill anchor-icon"></i></a>
@@ -95,6 +109,130 @@
 <script type="text/javascript">
 var myCarousel = document.querySelector('#carouselExampleDark')
 var carousel = new bootstrap.Carousel(myCarousel);
+
+
+/* particlesJS.load(@dom-id, @path-json, @callback (optional)); */
+particlesJS('particles-js', 
+{
+  "particles": {
+    "number": {
+      "value": 80,
+      "density": {
+        "enable": true,
+        "value_area": 800
+      }
+    },
+    "color": {
+      "value": "#000000"
+    },
+    "shape": {
+      "type": "circle",
+      "stroke": {
+        "width": 0,
+        "color": "#000000"
+      },
+      "polygon": {
+        "nb_sides": 5
+      },
+      "image": {
+        "src": "img/github.svg",
+        "width": 100,
+        "height": 100
+      }
+    },
+    "opacity": {
+      "value": 0.5,
+      "random": false,
+      "anim": {
+        "enable": false,
+        "speed": 1,
+        "opacity_min": 0.1,
+        "sync": false
+      }
+    },
+    "size": {
+      "value": 5,
+      "random": true,
+      "anim": {
+        "enable": false,
+        "speed": 40,
+        "size_min": 0.1,
+        "sync": false
+      }
+    },
+    "line_linked": {
+      "enable": true,
+      "distance": 150,
+      "color": "#000000",
+      "opacity": 0.4,
+      "width": 1
+    },
+    "move": {
+      "enable": true,
+      "speed": 6,
+      "direction": "none",
+      "random": false,
+      "straight": false,
+      "out_mode": "out",
+      "attract": {
+        "enable": false,
+        "rotateX": 600,
+        "rotateY": 1200
+      }
+    }
+  },
+  "interactivity": {
+    "detect_on": "canvas",
+    "events": {
+      "onhover": {
+        "enable": true,
+        "mode": "repulse"
+      },
+      "onclick": {
+        "enable": true,
+        "mode": "push"
+      },
+      "resize": true
+    },
+    "modes": {
+      "grab": {
+        "distance": 400,
+        "line_linked": {
+          "opacity": 1
+        }
+      },
+      "bubble": {
+        "distance": 400,
+        "size": 40,
+        "duration": 2,
+        "opacity": 8,
+        "speed": 3
+      },
+      "repulse": {
+        "distance": 200
+      },
+      "push": {
+        "particles_nb": 4
+      },
+      "remove": {
+        "particles_nb": 2
+      }
+    }
+  },
+  "retina_detect": true,
+  "config_demo": {
+    "hide_card": false,
+    "background_color": "#b61924",
+    "background_image": "",
+    "background_position": "50% 50%",
+    "background_repeat": "no-repeat",
+    "background_size": "cover"
+  }
+}
+, function() {
+  console.log('callback - particles.js config loaded');
+});
+
 
 </script>
 {% endblock%}
