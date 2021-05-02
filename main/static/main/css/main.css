@@ -14,6 +14,7 @@
 }
 
 body{
+    background-color: red;
     position: relative;
     margin: 0px;
     padding: 0px;
@@ -69,4 +70,15 @@ main{
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.dark-icon{
+    color: #333;
+    font-weight: bold;
+    font-size: 50px;
+}
+
+
+.dark-icon:hover{
+    color: #000;
 }
