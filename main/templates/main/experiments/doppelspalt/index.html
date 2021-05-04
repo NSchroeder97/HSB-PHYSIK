@@ -54,7 +54,7 @@ let app = new Vue({
 
     methods: {
         rechnen: function () {
-            let url = `http://localhost/api/experiments/doppelspalt/${app.lam}/${app.b}/${app.d}/${app.angle}`
+            let url = `http://{{ request.META.HTTP_HOST }}/api/experiments/doppelspalt/${app.lam}/${app.b}/${app.d}/${app.angle}`
             $.getJSON(url, function (json) {
                 app.json = json;
             });
@@ -62,7 +62,7 @@ let app = new Vue({
   }
 });
 
-let url = `http://localhost/api/experiments/doppelspalt/${app.lam}/${app.b}/${app.d}/${app.angle}`
+let url = `http://{{ request.META.HTTP_HOST }}/api/experiments/doppelspalt/${app.lam}/${app.b}/${app.d}/${app.angle}`
 $.getJSON(url, function (json) {
     app.json = json;
 });
