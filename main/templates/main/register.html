@@ -1,0 +1,46 @@
+{% extends 'main/template.html' %}
+{% load static %}
+{% block content %}
+<style>
+.container{
+    margin-top: 200px;
+}
+
+.spacer{
+  margin-top: 200px;
+  height: 200px;
+}
+
+.submit{ 
+  margin-top: 20px;
+}
+
+.form ul {
+  padding-left: 0px;
+}
+
+.form ul.errorlist {
+  color: var(--bs-red);
+  list-style: none;
+  font-weight: 600;
+}
+
+
+</style>
+
+<div class="container">
+
+    <div class="row text-left">
+        <form class="form border col-md-6 offset-md-3 p-3 rounded" action="{% url 'register' %}"  method="POST">
+
+            {% csrf_token %}
+            {{form.as_table}} 
+          
+            <button type="submit" class="submit btn btn-primary">Registrieren</button>
+        </form>
+    </div>
+</div>
+<div class="spacer"></div>
+
+
+{% endblock %}
