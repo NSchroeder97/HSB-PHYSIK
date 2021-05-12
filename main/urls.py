@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path, include
-from . import views, experiments, auth
+from . import views, experiments_urls, auth
 
 urlpatterns = [
     path('', views.index, name="index"),
@@ -12,7 +12,12 @@ urlpatterns = [
     #-----------------------------------------
     path('experiments', views.experiments, name="experiments"),
     path('projects', views.projects, name="projects"),
-    path('experiments/doppelspalt', experiments.doppelspalt, name="experiments_doppelspalt"),
-    path('api/experiments/doppelspalt/<int:lam>/<int:b>/<int:d>/<int:angle>', experiments.doppelspalt_api, name="api_experiments_doppelspalt")
+    
+    
+    path('experiments/doppelspalt', experiments_urls.doppelspalt, name="experiments_doppelspalt"),
+    path('api/experiments/doppelspalt/<int:lam>/<int:b>/<int:d>/<int:angle>', experiments_urls.doppelspalt_api, name="api_experiments_doppelspalt"),
+    
+    path('experiments/laser-emissions', experiments_urls.laser_emissions, name="experiments_laser_emissions"),
+    path('api/experiments/laser-emissions/<int:n_atoms>/<int:n_photons>/<int:niveau>', experiments_urls.laser_emissions_api, name="api_experiments_laser_emissions")
 ]
   

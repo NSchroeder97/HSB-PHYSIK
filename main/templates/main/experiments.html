@@ -15,6 +15,10 @@
         overflow: hidden;
         background-position: center;
     }
+
+    .card{
+        margin-left: 20px;
+    }
 </style>
 <section class="section-text" style="margin-top: 150px;">
 
@@ -26,16 +30,27 @@
 </section>
 
 <section class="cardholder">
-    <div class="container">
+    <div class="container d-flex flex-wrap">
         <div class="card" style="width: 18rem;">
             <div class="card-header card-blue"></div>
             <div class="card-image" style="background-image: url('{% static 'main/images/team/14.jpg' %}')"></div>
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
+              <h5 class="card-title">Doppelspalt</h5>
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
               <a href="{% url 'experiments_doppelspalt' %}" class="btn btn-primary">Zum Versuch</a>
             </div>
-          </div>
+        </div>
+
+        <div class="card" style="width: 18rem;">
+            <div class="card-header card-blue"></div>
+            <div class="card-image" style="background-image: url('{% static 'main/images/team/14.jpg' %}')"></div>
+            <div class="card-body">
+              <h5 class="card-title">Laser Emissionen</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="{% url 'experiments_laser_emissions' %}" class="btn btn-primary">Zum Versuch</a>
+            </div>
+        </div>
+
     </div>
 </section>
 
