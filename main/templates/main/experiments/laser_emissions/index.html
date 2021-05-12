@@ -1,0 +1,75 @@
+{% extends 'main/template.html' %}
+{% load static %}
+{% block content %}
+<style>
+.experiment{
+    margin-top: 150px;
+}
+
+</style>
+<div class="container experiment">
+    <div class="row" id="vue-app">
+        <div class="col-md-6">
+            <div class="form-group pb-3 mt-5" >
+                <p>Laser Niveau:</p>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" v-model="niveau" value="2" checked>
+                    <label class="form-check-label" for="inlineRadio2">2</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" v-model="niveau" value="3">
+                    <label class="form-check-label" for="inlineRadio3">3</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" v-model="niveau" value="4">
+                    <label class="form-check-label" for="inlineRadio4">4</label>
+                </div>
+            </div>
+            <div class="form-group mt-3">
+                <label for="rangeAtoms" class="form-label">Atome: <span>[[atoms]]</span></label>
+                <input type="range" class="form-range" min="0" max="100" v-model="atoms" id="rangeAtoms"> 
+                
+                <label for="rangePhotons" class="form-label">Photonen: <span>[[photons]]</span></label>
+                <input type="range" class="form-range" min="1" max="2000" v-model="photons" id="rangePhotons"> 
+
+                <br>
+                <button v-on:click="rechnen" class="btn btn-success">Berechnen</button>
+              
+            </div>
+        </div>
+        <div class="col-md-6">
+            <img :src="`data:image/png;base64,${json.chart}`" />
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+
+
+let app = new Vue({
+    el: "#vue-app",
+    delimiters: ['[[', ']]'],
+    data: {
+        json: null,
+        atoms: 10,
+        photons: 100,
+        niveau: 2
+    },
+
+    methods: {
+        rechnen: function () {
+            let url = `http://{{ request.META.HTTP_HOST }}/api/experiments/laser-emissions/${app.atoms}/${app.photons}/${app.niveau}`
+            $.getJSON(url, function (json) {
+                app.json = json;
+            });
+        }
+  }
+});
+let url = `http://{{ request.META.HTTP_HOST }}/api/experiments/laser-emissions/${app.atoms}/${app.photons}/${app.niveau}`
+$.getJSON(url, function (json) {
+    app.json = json;
+});
+</script>
+
+{% endblock %}

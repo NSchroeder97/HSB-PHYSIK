@@ -1,7 +1,7 @@
 {% load static %}
 <style>
 .nav-right{
-    right: 50px;
+    right: 700px;
     position:absolute;
 }
 </style>
@@ -15,9 +15,15 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
             <a class="nav-item nav-link active" href="{% url 'index' %}">Startseite</a>
+			<a class="nav-item nav-link" href="{% url 'Mitarbeiter' %}"></a>Mitarbeiter</a>
             <a class="nav-item nav-link" href="{% url 'projects' %}">Projekte</a>
+			<a class="nav-item nav-link" href="{% url 'Labore' %}">Labore</a>
             <a class="nav-item nav-link" href="{% url 'experiments' %}">Online Experimente</a>
-            <a class="nav-item nav-link disabled" href="#">Live Experimente</a>
+            <a class="nav-item nav-link" href="{% url 'experiments' %}">Live Experimente</a>
+            <a class="nav-item nav-link" href="{% url 'impressum' %}">Impressum</a>
+			<a class="nav-item nav-link" href="{% url 'register' %}"></a>Registrieren</a>
+			
+		
         </div>
 
         <ul class="navbar-nav nav-right ml-auto">

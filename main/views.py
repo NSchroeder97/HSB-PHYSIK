@@ -11,3 +11,15 @@ def experiments(response):
  
 def projects(response):
     return render(response, 'main/projects.html', {})
+
+def impressum(response):
+    return render(response, 'main/impressum.html', {})
+	
+def Labore(response):
+    return render(response, 'main/Labore.html', {})
+
+def Mitarbeiter(reponse):
+    return render(reponse, 'main/Mitarbeiter.html', {})
+
+def register(reponse):
+    return render(reponse, 'main/register.html', {})

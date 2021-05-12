@@ -1,20 +1,11 @@
-from django.shortcuts import render
-from django.http import HttpResponse, JsonResponse
-
 import math
 import numpy as np
 import matplotlib.pyplot as plt
 import base64
 from io import BytesIO
 
-# Doppelspalt
-def doppelspalt(response):
-    return render(response, 'main/experiments/doppelspalt/index.html')
-
-# Return the data
-def doppelspalt_api(response, lam, b, d, angle):
-    
-        # ------------------------->  EINGABE: Spaltbreite in mm
+def doppel_data(lam, b, d, angle):
+          # ------------------------->  EINGABE: Spaltbreite in mm
     b_mm = b
     # Spaltbreite in m: b
     b = b_mm / 1000
@@ -81,4 +72,4 @@ def doppelspalt_api(response, lam, b, d, angle):
         'dataB': dataB.tolist(),
         'dataAll': dataAll.tolist()
     }
-    return JsonResponse(data, safe=False)
+    return data
